@@ -16,13 +16,13 @@ All of these arguments can be omitted if, e.g., you are only fetching values for
 
 To get the actual string from the resource, call the `value` getter of the created instance. Example:
 ```dart
-var helloRes = NativeStringResource(
+var helloRes = await NativeStringRes().getValue(
   androidName: 'hello',
   iOSName: 'hello',
-  iOSPlistName: 'Info'
-);
+  iOSPlistName: 'Info',
+)
 
-print(await helloRes.value);
+print( helloRes);
 ```
 This will print `Hello world!` in the example project.
 

@@ -1,6 +1,6 @@
 name: native_string_res
 description: "Read values from Native"
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/fighttech-vn/native_string_res
 repository: https://github.com/fighttech-vn/native_string_res
 issue: https://github.com/fighttech-vn/native_string_res/issues
