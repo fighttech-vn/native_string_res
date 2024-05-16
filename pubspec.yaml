@@ -1,7 +1,9 @@
 name: native_string_res
 description: "Read values from Native"
-version: 0.0.1
-homepage:
+version: 0.0.2
+homepage: https://github.com/fighttech-vn/native_string_res
+repository: https://github.com/fighttech-vn/native_string_res
+issue: https://github.com/fighttech-vn/native_string_res/issues
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
