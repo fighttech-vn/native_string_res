@@ -1,6 +1,6 @@
 name: native_string_res
 description: "Read values from Native"
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/fighttech-vn/native_string_res
 repository: https://github.com/fighttech-vn/native_string_res
 issue: https://github.com/fighttech-vn/native_string_res/issues
@@ -14,7 +14,6 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  web: ^0.5.1
   plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
