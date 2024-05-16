@@ -7,13 +7,15 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockNativeStringResPlatform
     with MockPlatformInterfaceMixin
     implements NativeStringResPlatform {
-
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  Future<String?> getValue(
+          String androidName, String iOSName, String iOSPlistName) =>
+      Future.value('42');
 }
 
 void main() {
-  final NativeStringResPlatform initialPlatform = NativeStringResPlatform.instance;
+  final NativeStringResPlatform initialPlatform =
+      NativeStringResPlatform.instance;
 
   test('$MethodChannelNativeStringRes is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelNativeStringRes>());
@@ -24,6 +26,12 @@ void main() {
     MockNativeStringResPlatform fakePlatform = MockNativeStringResPlatform();
     NativeStringResPlatform.instance = fakePlatform;
 
-    expect(await nativeStringResPlugin.getPlatformVersion(), '42');
+    expect(
+        await nativeStringResPlugin.getValue(
+          androidName: 'hello',
+          iOSName: 'hello',
+          iOSPlistName: 'Test_list',
+        ),
+        '42');
   });
 }

@@ -1,7 +1,6 @@
 package vn.fighttech.native_string_res
 
-import androidx.annotation.NonNull
-
+import android.content.Context
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -15,15 +14,24 @@ class NativeStringResPlugin: FlutterPlugin, MethodCallHandler {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel : MethodChannel
+  private lateinit var context: Context
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "native_string_res")
     channel.setMethodCallHandler(this)
+    context = flutterPluginBinding.applicationContext // Get the context from FlutterPluginBinding
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+    if (call.method == "getValue") {
+      val name: String? = call.argument("name")
+      val resId = context.resources.getIdentifier(name, "string", context.packageName)
+      if (resId == 0) {
+        result.error("resource_missing", "The requested resource '$name' does not exist", null)
+      } else {
+        result.success(context.getString(resId))
+      }
+
     } else {
       result.notImplemented()
     }

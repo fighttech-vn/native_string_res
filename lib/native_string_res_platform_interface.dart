@@ -23,7 +23,11 @@ abstract class NativeStringResPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
+  Future<String?> getValue(
+    String androidName,
+    String iOSName,
+    String iOSPlistName,
+  ) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }
