@@ -4,12 +4,12 @@ Read values from Native
 
 Flutter plugin for getting native string resources
 
+  ```
 ///
 /// Need define values in native
 /// [Android]: `android/app/build.gradle` (or `/android/app/src/main/res/values/string.xml`)
 /// [iOS]: `ios/Runner/Info.plist`
 ///
-  ```
 static Map<String, dynamic> _valuesNative = {};
 
   static Future<void> loadNative() async {
