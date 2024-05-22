@@ -4,6 +4,23 @@ Read values from Native
 
 Flutter plugin for getting native string resources
 
+///
+/// Need define values in native
+/// [Android]: `android/app/build.gradle` (or `/android/app/src/main/res/values/string.xml`)
+/// [iOS]: `ios/Runner/Info.plist`
+///
+  ```
+static Map<String, dynamic> _valuesNative = {};
+
+  static Future<void> loadNative() async {
+    _valuesNative = await loadNativeValues([
+      ('deeplink_host', 'deeplink_host', 'deeplink_host', 'Info'),
+    ]);
+  }
+
+  static String get deeplinkHost => _valuesNative['deeplink_host'];
+```
+
 ## Usage
 Check the example folder for code examples.
 To get a string resource, create a `NativeStringResource` instance. The constructor is the following:
