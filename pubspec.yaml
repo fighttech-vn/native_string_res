@@ -1,6 +1,6 @@
 name: native_string_res
 description: "Read values from Native"
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/fighttech-vn/native_string_res
 repository: https://github.com/fighttech-vn/native_string_res
 issue: https://github.com/fighttech-vn/native_string_res/issues
@@ -50,7 +50,7 @@ flutter:
       windows:
         pluginClass: NativeStringResPluginCApi
       web:
-        pluginClass: NativeStringResWeb
+        pluginClass: NativeStringResWebPlugin
         fileName: native_string_res_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
